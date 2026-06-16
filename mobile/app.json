@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Times Edu",
+    "slug": "times-edu-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "timesedu",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#1D3557",
+      "resizeMode": "contain"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "vn.edu.times.app"
+    },
+    "android": {
+      "package": "vn.edu.times.app",
+      "adaptiveIcon": { "backgroundColor": "#1D3557" }
+    },
+    "extra": {
+      "comment": "Set EXPO_PUBLIC_API_BASE_URL in .env or EAS secrets. Never ship the Anthropic key in the client."
+    }
+  }
+}

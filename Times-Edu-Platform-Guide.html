@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Times Edu · Nền tảng hợp nhất — Tài liệu kiến trúc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy900:#14253D;--navy800:#1D3557;--navy700:#274A73;--gold:#B38B4D;--gold-bright:#D8B877;--gold-deep:#8F6E3A;
+  --paper:#F9F5EF;--paper2:#F1EADD;--line:#E3DAC9;--line2:#EFE8DA;--ink:#1A2235;--slate:#5B6678;--slate2:#8A93A4;--white:#fff;
+  --teal:#2C6E6A;--wine:#8A3B3B;--green:#2F8F6B;--blue:#335C8A;
+  --serif:'Spectral',Georgia,serif;--sans:'Hanken Grotesk',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
+.wrap{max-width:880px;margin:0 auto;padding:0 22px 80px}
+a{color:var(--gold-deep)}
+::selection{background:var(--gold-bright);color:var(--navy900)}
+
+/* hero */
+.hero{background:radial-gradient(130% 110% at 100% -10%,rgba(216,184,119,.22),transparent 55%),linear-gradient(155deg,#274A73,#1D3557 60%,#14253D);
+  color:#fff;padding:54px 0 60px;margin-bottom:-34px}
+.hero .wrap{padding-bottom:0}
+.brandrow{display:flex;align-items:center;gap:13px;margin-bottom:34px}
+.logo{width:50px;height:50px;border-radius:14px;background:linear-gradient(150deg,var(--gold-bright),var(--gold) 58%,var(--gold-deep));
+  display:grid;place-items:center;box-shadow:0 10px 26px rgba(143,110,58,.4);flex:none}
+.logo svg{width:28px;height:28px}
+.brandrow .nm{font-family:var(--serif);font-weight:700;font-size:16px;line-height:1}
+.brandrow .sub{font-size:10.5px;letter-spacing:.16em;color:#C9D4E4;margin-top:3px;text-transform:uppercase;font-weight:600}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:40px;letter-spacing:-.7px;line-height:1.08}
+.hero h1 i{color:var(--gold-bright);font-style:italic}
+.hero p{color:#C7D2E2;font-size:16px;line-height:1.6;max-width:60ch;margin-top:16px}
+.tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+.tag{background:rgba(216,184,119,.16);color:#F3E6CC;font-size:12px;font-weight:600;padding:6px 13px;border-radius:999px;letter-spacing:.02em}
+
+/* cards / sections */
+.card{background:var(--white);border:1px solid var(--line2);border-radius:20px;box-shadow:0 4px 18px rgba(20,37,61,.06);padding:26px 28px;margin-top:20px;position:relative;z-index:1}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate2);font-weight:700;margin-bottom:8px}
+h2{font-family:var(--serif);font-weight:700;font-size:23px;letter-spacing:-.4px;margin-bottom:6px}
+h2 .n{color:var(--gold);font-size:15px;margin-right:9px;font-weight:600}
+h3{font-family:var(--serif);font-weight:600;font-size:16px;margin:18px 0 8px}
+p.lead{color:var(--slate);font-size:14.5px;margin-bottom:6px}
+.muted{color:var(--slate);font-size:14px}
+
+/* table */
+table{width:100%;border-collapse:collapse;margin-top:14px}
+th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--slate2);font-weight:700;padding:9px 12px;border-bottom:1px solid var(--line2)}
+td{padding:11px 12px;border-bottom:1px solid var(--line2);font-size:13.5px;vertical-align:top}
+tr:last-child td{border-bottom:none}
+code{font-family:var(--serif);background:var(--paper2);padding:1.5px 7px;border-radius:6px;font-size:13px;color:var(--navy800);font-weight:600}
+.file{font-family:var(--serif);font-weight:600;color:var(--gold-deep);font-size:13px}
+
+/* role grid */
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:16px}
+.role{border:1px solid var(--line);border-radius:14px;padding:16px;border-left-width:3px}
+.role.admin{border-left-color:var(--navy800)} .role.tutor{border-left-color:var(--gold)}
+.role.student{border-left-color:var(--teal)} .role.parent{border-left-color:var(--wine)}
+.role b{font-family:var(--serif);font-size:15.5px;display:block;margin-bottom:3px}
+.role .new{font-size:10px;font-weight:700;color:var(--gold-deep);background:var(--paper2);padding:1px 7px;border-radius:99px;margin-left:6px;vertical-align:1px}
+.role span{font-size:12.5px;color:var(--slate);line-height:1.5}
+
+/* steps */
+.step{display:flex;gap:13px;padding:12px 0;border-bottom:1px solid var(--line2)}
+.step:last-child{border:none}
+.step .i{width:26px;height:26px;border-radius:8px;background:var(--navy800);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:13px;flex:none}
+.step p{font-size:13.5px}
+.step b{color:var(--ink)}
+
+/* diagram */
+.diag{background:var(--navy900);border-radius:16px;padding:22px;margin-top:16px;color:#D7DEEA}
+.diag .top{background:linear-gradient(135deg,#274A73,#1D3557);border:1px solid rgba(216,184,119,.25);border-radius:12px;padding:14px;text-align:center;max-width:360px;margin:0 auto 10px}
+.diag .top b{color:#fff;font-family:var(--serif);font-size:14px}
+.diag .top span{display:block;font-size:11.5px;color:#A9B6CB;margin-top:3px}
+.diag .conn{text-align:center;color:var(--gold-bright);font-size:11px;letter-spacing:.1em;margin:6px 0}
+.diag .clients{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.diag .cl{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:13px;text-align:center}
+.diag .cl b{color:#fff;font-size:13px;display:block}
+.diag .cl span{font-size:11px;color:#9AA8BF;display:block;margin-top:3px}
+.diag .cl.gold{border-color:rgba(216,184,119,.35)}
+
+/* pre (run) */
+pre{background:var(--navy900);color:#E3E9F2;border-radius:12px;padding:16px 18px;overflow-x:auto;font-family:'Spectral',monospace;font-size:13px;line-height:1.7;margin-top:12px}
+pre .c{color:#8FA0BC}
+pre .k{color:var(--gold-bright)}
+
+.foot{margin-top:30px;text-align:center;color:var(--slate2);font-size:13px}
+.foot b{color:var(--ink)}
+.divline{height:1px;background:var(--line2);margin:18px 0}
+
+@media(max-width:620px){
+  .hero h1{font-size:30px}.roles{grid-template-columns:1fr}.diag .clients{grid-template-columns:1fr}
+  .card{padding:22px 18px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brandrow">
+      <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#1D3557" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 8-4v6"/><path d="M6 10.5V15c0 1.1 2.7 3 6 3s6-1.9 6-3v-4.5"/></svg></div>
+      <div><div class="nm">Times Edu</div><div class="sub">Operating Platform</div></div>
+    </div>
+    <h1>Một nền tảng,<br/><i>bốn vai trò.</i></h1>
+    <p>Hợp nhất app gia sư, app học viên và cổng phụ huynh thành một hệ thống dùng chung dữ liệu — phủ đủ Website + Mobile App, bổ sung giao diện Quản trị làm trục kết nối. Chuyên chương trình quốc tế.</p>
+    <div class="tagrow"><span class="tag">IGCSE</span><span class="tag">A Level</span><span class="tag">IB</span><span class="tag">AP</span><span class="tag">Website</span><span class="tag">Mobile App</span><span class="tag">Admin</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="card">
+    <div class="eyebrow">Bàn giao</div>
+    <h2><span class="n">01</span>Đã bàn giao</h2>
+    <table>
+      <thead><tr><th>Sản phẩm</th><th>File</th><th>Mô tả</th></tr></thead>
+      <tbody>
+        <tr><td><b>Website</b> — 4 vai trò + Admin</td><td><span class="file">times-edu-platform.html</span></td><td>SPA mở trực tiếp, một nguồn dữ liệu, đổi vai trò tức thì</td></tr>
+        <tr><td><b>Mobile App</b> hợp nhất</td><td><span class="file">times-edu-mobile.zip</span></td><td>Một codebase Expo/React Native, cổng vai trò Học viên ↔ Gia sư</td></tr>
+        <tr><td><b>Tài liệu kiến trúc</b></td><td><span class="file">README.md</span> + HTML</td><td>Trang này</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <div class="eyebrow">Vai trò</div>
+    <h2><span class="n">02</span>Bốn vai trò — một hệ thống</h2>
+    <p class="lead">Mọi vai trò đọc cùng một nguồn sự thật. Thao tác của Quản trị lan tới các vai trò khác ngay.</p>
+    <div class="roles">
+      <div class="role admin"><b>Quản trị <span class="new">MỚI</span></b><span>Tổng quan vận hành · Học viên · Gia sư · Phụ huynh · Ghép lớp · Buổi học · Học phí · Tài liệu · Nền tảng AI · Chương trình</span></div>
+      <div class="role tutor"><b>Gia sư</b><span>Tổng quan · Lịch · Học viên · Tài liệu · Thu nhập</span></div>
+      <div class="role student"><b>Học viên</b><span>Trang chủ · Môn học · Luyện đề · Gia sư AI · Tiến độ</span></div>
+      <div class="role parent"><b>Phụ huynh</b><span>Tổng quan · Lịch học · Tiến độ · Gia sư · Học phí · Tin nhắn</span></div>
+    </div>
+    <div class="divline"></div>
+    <h3>Bằng chứng "đã kết nối" — thử trên website</h3>
+    <div class="step"><div class="i">1</div><p><b>Admin → Học phí → Ghi nhận</b> một hoá đơn, rồi mở <b>Phụ huynh → Học phí</b>: trạng thái đã đổi sang <i>Đã thu</i>.</p></div>
+    <div class="step"><div class="i">2</div><p><b>Admin → Buổi học → Xếp buổi học</b>: buổi mới hiện trong <b>Lịch của Gia sư</b> và <b>Lịch của Phụ huynh</b>.</p></div>
+    <div class="step"><div class="i">3</div><p><b>Admin → Ghép lớp</b> một học viên với gia sư: cặp hiện ở <b>Gia sư → Học viên</b> và <b>Phụ huynh → Gia sư</b>.</p></div>
+    <div class="step"><div class="i">4</div><p><b>Admin → Gia sư → Duyệt hồ sơ</b>: gia sư chuyển sang <i>Hoạt động</i> và nhận lớp được.</p></div>
+  </section>
+
+  <section class="card">
+    <div class="eyebrow">Kiến trúc</div>
+    <h2><span class="n">03</span>Cách mọi thứ kết nối</h2>
+    <p class="lead">Một backend, một API contract, một mô hình dữ liệu — ba client cùng nói chung ngôn ngữ.</p>
+    <div class="diag">
+      <div class="top"><b>BACKEND Times Edu (API)</b><span>Auth · CRM · Sessions · Payments · Content · AI proxy</span></div>
+      <div class="conn">▼ cùng một API contract ▼</div>
+      <div class="clients">
+        <div class="cl"><b>Website</b><span>4 vai trò + Admin</span></div>
+        <div class="cl"><b>Mobile App</b><span>Học viên + Gia sư</span></div>
+        <div class="cl gold"><b>Nền tảng AI</b><span>Luyện thi · liên kết tài khoản</span></div>
+      </div>
+    </div>
+    <h3>Mô hình dữ liệu dùng chung</h3>
+    <p class="muted">Web <code>STORE</code> và mobile <code>data/mockData.ts</code> cùng shape:
+      <code>Curriculum</code> · <code>Student</code> · <code>Tutor</code> · <code>Parent</code> · <code>Session</code> · <code>Subject/Topic</code> · <code>Resource</code> · <code>Invoice</code>.
+      Mỗi export ↔ một resource API khi nối backend. Khoá Anthropic <b>luôn ở server</b>; client chỉ gọi backend Times Edu.</p>
+  </section>
+
+  <section class="card">
+    <div class="eyebrow">Thiết kế</div>
+    <h2><span class="n">04</span>Hệ thiết kế đồng nhất</h2>
+    <p class="muted">Cùng một bộ token cho web và mobile. Màu lõi: navy <code>#1D3557</code>, gold <code>#B38B4D</code>, beige <code>#F9F5EF</code>. Chữ: Spectral (serif) + Hanken Grotesk (sans). Mỗi vai trò có một accent riêng (Admin navy · Gia sư gold · Học viên teal · Phụ huynh đỏ rượu) bằng cách đổi một biến.</p>
+  </section>
+
+  <section class="card">
+    <div class="eyebrow">Chạy thử</div>
+    <h2><span class="n">05</span>Khởi chạy</h2>
+    <h3>Website</h3>
+    <p class="muted">Mở <span class="file">times-edu-platform.html</span> bằng trình duyệt. Chọn vai trò ở màn đăng nhập, hoặc dùng nút <i>View as</i> (góc trên phải) để nhảy vai trò.</p>
+    <h3>Mobile App</h3>
+<pre><span class="c"># giải nén rồi cài đặt</span>
+unzip times-edu-mobile.zip && cd mobile
+<span class="k">npm</span> install
+cp .env.example .env        <span class="c"># đặt EXPO_PUBLIC_API_BASE_URL</span>
+<span class="k">npm</span> start                   <span class="c"># bấm i (iOS) / a (Android) / w (web)</span></pre>
+  </section>
+
+  <section class="card">
+    <div class="eyebrow">Tiếp theo</div>
+    <h2><span class="n">06</span>Bước tiếp theo (production)</h2>
+    <div class="step"><div class="i">1</div><p>Dựng backend theo API contract; nối Auth trả <code>{ token, role }</code>.</p></div>
+    <div class="step"><div class="i">2</div><p>Thay từng <code>mockData</code>/<code>STORE</code> export bằng call API thật (giữ nguyên shape).</p></div>
+    <div class="step"><div class="i">3</div><p>Mobile: lưu token bằng <code>expo-secure-store</code>; thêm refresh + xử lý lỗi 401.</p></div>
+    <div class="step"><div class="i">4</div><p>Bổ sung vai trò <b>Phụ huynh</b> vào mobile (tái dùng module phụ huynh từ website).</p></div>
+    <div class="step"><div class="i">5</div><p>SEO/content cho web tutor-finder tập trung <b>chương trình quốc tế</b> (IGCSE · A Level · IB · AP).</p></div>
+  </section>
+
+  <div class="foot">
+    <b>Times Edu</b> — Hotline 0362038998 · admin@times.edu.vn
+  </div>
+
+</div>
+</body>
+</html>

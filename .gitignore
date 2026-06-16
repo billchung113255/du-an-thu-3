@@ -1,0 +1,3 @@
+node_modules/
+server/lms.db
+__pycache__/
