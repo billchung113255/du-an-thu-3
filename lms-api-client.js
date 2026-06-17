@@ -2,11 +2,12 @@
 const TOKEN_KEY = 'lms_token';
 const AUTH = { token: null, user: null };
 let STORE = null;
+const API_BASE = 'https://lms-api.onrender.com';
 
 async function api(path, opts = {}) {
   const headers = { 'Content-Type': 'application/json', ...(opts.headers || {}) };
   if (AUTH.token) headers.Authorization = 'Bearer ' + AUTH.token;
-  const res = await fetch('/api' + path, { ...opts, headers });
+  const res = await fetch(API_BASE + '/api' + path, { ...opts, headers });
   const data = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(data.error || 'Lỗi máy chủ');
   return data;
