@@ -8,6 +8,5 @@ export const config = {
     process.env.EXPO_PUBLIC_API_BASE_URL?.replace(/\/+$/, '') ?? 'https://api.times.edu.vn',
   /** Path on your backend that holds the Anthropic key and forwards the chat. */
   tutorPath: '/v1/tutor/chat',
-  hotline: '0362038998',
   supportEmail: 'admin@times.edu.vn',
 } as const;

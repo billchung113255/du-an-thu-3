@@ -30,5 +30,4 @@ export const brandFonts = {
   sansBold: 'HankenGrotesk_700Bold',
 } as const;
 
-export const hotline = '0362038998';
 export const supportEmail = 'admin@times.edu.vn';
