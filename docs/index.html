@@ -386,6 +386,7 @@ svg.linechart{width:100%;height:auto;display:block}
 </div>
 <div class="toasts" id="toasts"></div>
 
+<script src="lms-api-client.js"></script>
 <script>
 /* ============================================================================
    TIMES EDU LMS — Hệ thống quản lý học tập (7 vai trò)
@@ -976,7 +977,6 @@ function afterRender(){}
 /* ================================ INIT ================================ */
 buildGate();
 </script>
-<script src="lms-api-client.js"></script>
 <script>
 (async function initApp(){
   if(await trySession()){
